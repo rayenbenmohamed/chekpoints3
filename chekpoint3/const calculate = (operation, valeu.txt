@@ -1,0 +1,74 @@
+const calculate = (operation, valeur1, valeur2) => {
+  switch (operation) {
+    case '+':
+      return valeur1 + valeur2;
+    case '-':
+      return valeur1 - valeur2;
+    case '*':
+      return valeur1 * valeur2;
+    case '/':
+      return valeur1 / valeur2;
+    default:
+      throw new Error("Opération invalide. Les opérations valides sont : '+', '-', '*', '/'");
+  }
+};
+
+
+const sumSeries = (n) => {
+  if (n === 0) {
+    return '0.00';
+  }
+
+  let sum = 0;
+  let denominator = 1;
+
+  for (let i = 0; i < n; i++) {
+    sum += 1 / denominator;
+    denominator += 3;
+  }
+
+  return sum.toFixed(2);
+};
+
+const getCentury = (year) => {
+  const century = Math.floor((year - 1) / 100) + 1;
+  return century;
+};
+
+
+
+const sumMultiplesOf3And5 = (number) => {
+  if (number < 0) {
+    return 0;
+  }
+
+  let sum = 0;
+
+  for (let i = 3; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
+};
+
+const sumDigitsToOne = (n) => {
+  let sum = n;
+
+  while (sum > 9) {
+    sum = sum.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+  }
+
+  return sum;
+};
+
+
+
+const spinWords = (str) => {
+  const words = str.split(' ');
+  const reversedWords = words.map(word => {
+    return word.length >= 5 ? word.split('').reverse().join('') : word;
+  });
+  return reversedWords.join(' ');
+};
